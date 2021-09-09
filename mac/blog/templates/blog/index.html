@@ -1,0 +1,29 @@
+{% extends 'blog/basic.html' %}
+{% block body %}
+    <div class = "container my-4">
+    <div class="row mb-2">
+
+{% for i in myposts %}
+
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h1 class="mb-0" id="namepr{{i.id}}">{{i.tilte}}</h1><hr/>
+            <h3 class="mb-0">{{i.head0}}</h3>
+            <div class="mb-1 text-muted ">{{i.chead0}}</div>
+
+          <a href="blogPost/{{i.post_id}}" class="stretched-link my-4">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="/media/{{i.thumbnail}}"class="bd-placeholder-img" width="200" height="250"  aria-label="Placeholder: Thumbnail"></img>
+        </div>
+      </div>
+    </div>
+              {% if forloop.counter|divisibleby:2%}
+ </div>
+    <div class="row my-2">
+        {%endif%}
+        {%endfor%}</div>
+
+    </div>
+{% endblock %}
