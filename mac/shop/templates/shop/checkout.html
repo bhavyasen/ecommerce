@@ -1,6 +1,7 @@
 {% extends 'shop/basic.html' %}
 {% block title%} Checkout - My Awesome Cart{% endblock %}
 {% block body %}
+
 <div class="container">
     <div class="col my-4">
         <h2>Step 1 - My Awesome Cart Express Checkout - Review Your Cart Items</h2>
@@ -10,6 +11,7 @@
             </ol>
         </div>
     </div>
+
     <div class="col my-4">
         <h2>Step 2 - Enter Address & Other Details:</h2>
         <form method="post" action="/shop/checkout/">{% csrf_token %}
@@ -50,8 +52,16 @@
                     <label for="inputZip">Phone Number</label>
                     <input type="tel" class="form-control" id="phone" name="phone">
                 </div>
+            {% if user.is_authenticated %}
             <button type="submit" class="btn btn-primary my-2">Place Order</button>
+        {% else %}
+            <button type="submit" class="btn btn-primary my-2" disabled>Place Order</button><br>
+    Please login to post a comment
+    {% endif %}
+
+
         </form>
+
     </div>
 </div>
 {% endblock %}
@@ -64,7 +74,13 @@ if (localStorage.getItem('cart') == null) {
     var cart = {};
 } else {
     cart = JSON.parse(localStorage.getItem('cart'));
+
 }
+
+
+
+
+
 console.log(cart);
 var sum = 0;
 if ($.isEmptyObject(cart)) {
@@ -81,11 +97,13 @@ if ($.isEmptyObject(cart)) {
                        <div class="fw-bold">${name}</div>
                  </div>
                   <span class="badge bg-primary rounded-pill">${qty}</span>
+
                 </li>`
         $('#items').append(mystr);
     }
 }
 document.getElementById('cart').innerHTML = sum;
+
 
 $('#itemsJson').val(JSON.stringify(cart));
 {% if thank %}
@@ -93,6 +111,12 @@ alert("Thanks for ordering with us. Your order id is {{id}}. Use it to track you
 localStorage.clear();
 document.location="/shop";
 {%endif%}
+
+
+
+
+
+
 
 </script>
 
