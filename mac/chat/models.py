@@ -1,4 +1,5 @@
 from django.db import models
+from typing import Type
 from datetime import datetime
 # Create your models here.
 class Room(models.Model):
