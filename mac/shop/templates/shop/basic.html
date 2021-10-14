@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
     <!-- Bootstrap CSS -->
 
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -100,7 +100,26 @@ background-color:#0007;
 background-color:#0007;
 
 }
+.btnsignin,
+.btnsignup
+{
+width:100px;
+background:#00bcd4;
+color:#fff;
+cursor:pointer;
+outline:none;
+padding:10px;
+font-size:18px;
+border:none;
+border-radius:15px;
+}
 
+.modal-content{
+    background-image:url('/static/shop/contactbg.jpg');
+}
+#loginModal, #signupModal{
+background:rgba(0,0,0,0.5);
+}
 
       {% block css %} {% endblock %}
     </style>
@@ -281,39 +300,39 @@ SignUp
       <div class="modal-header">
         <h5 class="modal-title" id="signupModalLabel">SignUp Here</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true"></span>
         </button>
       </div>
       <div class="modal-body">
         <form action= "/shop/signup/" method='post'>
   <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" class="form-control" id="username" name="username" placeholder="Choose a unique username" required>
+    <label for="username"></label>
+    <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
   </div>
   <div class="form-group">
-    <label for="fname">First Name</label>
-    <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter Your First Name" required>
+    <label for="fname"></label>
+    <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name" required>
   </div>
   <div class="form-group">
-    <label for="lname">Last Name</label>
-    <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter Your Last Name" required>
+    <label for="lname"></label>
+    <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name" required>
   </div>
   <div class="form-group">
-    <label for="email">Email address</label>
+    <label for="email"></label>
     <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
   </div>
   <div class="form-group">
-    <label for="pass1">Choose a password</label>
-    <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Choose Your Password" required>
+    <label for="pass1"></label>
+    <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Password" required>
   </div>
   <div class="form-group">
-    <label for="pass2">Confirm Password</label>
-    <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Enter your password again" required>
+    <label for="pass2"></label>
+    <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Confirm Password" required>
   </div>
 
 
         {% csrf_token %}
-        <button type="submit" class="btn btn-primary my-2">Submit</button>
+        <button type="submit" class="btnsignup my-3">Submit</button>
 </form>
       </div>
       <div class="modal-footer">
@@ -331,9 +350,9 @@ SignUp
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">Login Here</h5>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <h5 class="modal-title" id="loginModalLabel">SignIn Here</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
         </button>
 
       </div>
@@ -341,15 +360,15 @@ SignUp
           {% csrf_token %}
         <form action="/shop/login/" method="POST"> {% csrf_token %}
   <div class="form-group">
-    <label for="loginusername">Username</label>
-    <input type="text" class="form-control" id="loginusername" name="loginusername" placeholder="Choose a unique username">
+    <label for="loginusername"></label>
+    <input type="text" class="form-control" id="loginusername" name="loginusername" placeholder="Username">
   </div>
   <div class="form-group">
-    <label for="loginpassword">Enter your password </label>
-    <input type="password" class="form-control" id="loginpassword" name="loginpassword" placeholder="Enter your password ">
+    <label for="loginpassword"></label>
+    <input type="password" class="form-control" id="loginpassword" name="loginpassword" placeholder="Password ">
   </div>
 
-        <button type="submit" class="btn btn-primary my-2">Submit</button>
+        <button type="submit" class="btnsignin my-3">Submit</button>
         </form>
       </div>
        <div class="modal-footer">

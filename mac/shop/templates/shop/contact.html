@@ -2,13 +2,154 @@
 {% block css %}
 
 body{
-background-image:url('/static/shop/background.jpg');
+background-image:url('/static/shop/contactbg1.jpg');
     height:max-content;
     background-attachment:fixed;
     background-position:center;
     background-repeat:no-repeat;
     background-size:cover;
 }
+@import url('https://fonts.googleapis.com/css3?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+.{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+.contact{
+position:relative;
+min-height:100vh;
+padding:50px 100px;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-directions:column;
+}
+.contact .content{
+max-width:800px;
+text-align:center;
+}
+.contact .content h2{
+font-size:36px;
+font-weight:500;
+color:#fff;
+}
+.contact .content p{
+
+font-weight:300;
+color:#fff;
+}
+
+.container{
+width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+margin-top:30px;
+}
+.container .contactInfo{
+width:50%;
+display:flex;
+flex-direction:column;
+
+}
+
+.container .contactInfo .box{
+position:relative;
+padding:20px 0;
+display:flex;
+
+}
+.container .contactInfo .box .text{
+margin-left:20px;
+font-size:16px;
+color:#fff;
+}
+
+
+.container .contactInfo .box .text h3{
+font-weight:500;
+color:#00bcd4;
+}
+.contactForm{
+width:40%;
+padding:40px;
+background:#fff;
+}
+.contactForm h2{
+font-size:30px;
+color:#333;
+font-weight:500;
+}
+.contactForm .inputBox{
+position:relative;
+width:100%;
+margin-top:10px;
+
+}
+.contactForm .inputBox input,
+.contactForm .inputBox textarea{
+width:100%;
+padding:5px 0;
+font-size:16px;
+margin:10px 0;
+border:none;
+border-bottom:2px solid #333;
+outline:none;
+resize:none;
+}
+.contactForm .inputBox span{
+position:absolute;
+left:0;
+padding:5px 0;
+font-size:16px;
+margin:10px 0;
+pointer-events:none;
+transition:0.5s;
+color:#666;
+
+}
+.contactForm .inputBox input:focus ~span,
+.contactForm .inputBox input:valid ~span,
+.contactForm .inputBox textarea:focus ~span,
+.contactForm .inputBox textarea:valid ~span,
+{
+color:#e91e63;
+font-size:12px;
+transform:translateY(-20px);
+}
+.btncontact
+{
+width:100px;
+background:#00bcd4;
+color:#fff;
+cursor:pointer;
+outline:none;
+padding:10px;
+font-size:18px;
+border:none;
+border-radius:15px;
+}
+@media (max-width:991px)
+{
+.contact
+{
+padding:50px;
+}
+.container{
+flex-direction:column;
+}
+.container .contactInfo
+{
+margin-bottom:40px;
+}
+.container .contactInfo,
+.contactForm
+{
+width:100%;
+}
+}
+
 
 {% endblock %}
 
@@ -16,14 +157,12 @@ background-image:url('/static/shop/background.jpg');
 {% block title %} Contact us{% endblock %}
 {% block body %}
 
-
+<!--
 <div class="container my-3">
      <h3>Contact Us</h3></br>
      <form action="/shop/contact/" method="post">{% csrf_token %}
   <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control my-3" id="name" name="name" placeholder="Enter Your Name">
-  </div>
+    <  </div>
           <div class="form-group">
     <label for="name">Email</label>
     <input type="email" class="form-control my-3" id="email" name="email" placeholder="Enter Your Email">
@@ -40,6 +179,73 @@ background-image:url('/static/shop/background.jpg');
      </form>
 </div>
 
+-->
+
+<!-- new code -->
+
+<section class="contact">
+    <!--
+    <div class="content">
+
+        <h2>Contact Us</h2>
+        <p>hiiii i m bhavya</p>
+    </div>
+    -->
+    <div class="container">
+        <div class="contactInfo">
+            <div class="box">
+                <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p>Ratanda Rd,<br>MBM Enginnering College Jodhpur,<br>342001</p>
+                    </div>
+                </div>
+            <div class="box">
+                <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i>
+</div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>91-8000621861</p>
+                    </div>
+                </div>
+            <div class="box">
+                <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p>bhavyasen5@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        <div class="contactForm">
+            <form action="/shop/contact/" method="post">{% csrf_token %}
+                <h2>Send Message</h2>
+                <div class="inputBox">
+    <input type="text" class="form-control my-3" id="name" name="name" placeholder="Full Name" required>
+
+
+                </div>
+                <div class="inputBox">
+                    <input type="email" class="form-control my-3" id="email" name="email" placeholder="Email" required>
+
+
+                </div>
+                <div class="inputBox">
+                    <input type="tel" class="form-control my-3" id="phone" name="phone" placeholder="Phone" required>
+
+
+                </div>
+                <div class="inputBox">
+                        <textarea class="form-control my-3" id="desc" name="desc" rows="3" placeholder="Type your Mesaage..." required></textarea>
+                </div>
+                <div class="inputBox">
+                    <button type="submit" class="btncontact">Send</button>
+
+                </div>
+            </form>
+        </div>
+        </div>
+
+</section>
 
 
 {% endblock %}
