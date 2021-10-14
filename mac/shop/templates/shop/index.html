@@ -37,6 +37,14 @@ background-color:blue;
          bottom: auto;
 padding-top:222px;
 }
+body{
+background-image:url('/static/shop/background.jpg');
+    height:max-content;
+    background-attachment:fixed;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+}
 
 
   {% endblock %}
@@ -44,7 +52,7 @@ padding-top:222px;
 {% load static %}
 
 
-<div class="container" xmlns:data="http://www.w3.org/1999/xhtml">
+<div class="container" id="ab" xmlns:data="http://www.w3.org/1999/xhtml">
 
     {% for product, range, nslides in allProds %}
     <h1 class="my-4">{{product.0.category}}</h1>
